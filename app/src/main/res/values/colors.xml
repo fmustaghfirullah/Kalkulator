@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="pink">#E917D9</color>
+
+    <color name="dark_gray">#FF333333</color>
+    <color name="orange">#FFFFA500</color>
+    <color name="gray">#FFD3D3D3</color>
+
+    <color name="my_primary_color">#FF3700B3</color> <!-- Contoh: Ungu gelap -->
+    <color name="my_primary_variant">#FF000000</color>
+    <color name="my_secondary_color">#FF03DAC5</color> <!-- Contoh: Tosca -->
+    <color name="my_secondary_variant">#FF018786</color>
+</resources>
