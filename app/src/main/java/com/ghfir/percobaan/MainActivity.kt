@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var soundPool: SoundPool
     private var soundId: Int = 0
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -155,4 +156,6 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         soundPool.release()
     }
+
+
 }
