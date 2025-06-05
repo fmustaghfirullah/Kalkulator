@@ -1,7 +1,10 @@
 package com.ghfir.percobaan
+
+import android.content.Intent
 import android.media.AudioAttributes
 import android.media.SoundPool
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
@@ -14,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private var isResultShown = false
     private lateinit var soundPool: SoundPool
     private var soundId: Int = 0
-
+    private lateinit var btnBack: ImageButton // Deklarasikan di sini
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,13 @@ class MainActivity : AppCompatActivity() {
             .build()
         soundId = soundPool.load(this, R.raw.sound_effect, 1)
 
+        // Pindahkan inisialisasi dan listener ke sini
+        btnBack = findViewById(R.id.btnBack)
+        btnBack.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+            finish() // Tutup MainActivity
+        }
     }
 
     private fun setupNumberButtons() {
@@ -156,6 +166,5 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         soundPool.release()
     }
-
 
 }
