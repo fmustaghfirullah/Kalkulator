@@ -12,4 +12,5 @@
     <color name="my_primary_variant">#FF000000</color>
     <color name="my_secondary_color">#FF03DAC5</color> <!-- Contoh: Tosca -->
     <color name="my_secondary_variant">#FF018786</color>
+    <color name="splash_bg">#323232</color> <!-- Contoh warna, sesuaikan -->
 </resources>

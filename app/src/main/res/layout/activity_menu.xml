@@ -25,7 +25,7 @@
         android:paddingBottom="10dp"
         android:fontFamily="serif-monospace"
         android:textSize="20dp"
-        android:textColor="#1FED04"
+        android:textColor="#A704ED"
         android:textStyle="bold"/>
 
     <com.google.android.material.button.MaterialButton
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        style="@style/CalculatorButton.Gray"
+        style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
         android:text="@string/move_activity"
         tools:ignore="MissingConstraints" />
 

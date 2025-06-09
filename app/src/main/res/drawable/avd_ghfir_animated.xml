@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:drawable="@drawable/ghfir"
+    tools:ignore="ExtraText">  <!-- Referensi ke logo statis XML -->
+
+    <target
+        android:name="logo_group"
+        android:animation="@animator/fade_in_logo_anim" /> <!-- Resep animasi  -->
+
+</animated-vector>

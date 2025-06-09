@@ -11,6 +11,8 @@ activity = "1.10.1"
 constraintlayout = "2.2.1"
 materialVersion = "1.9.0"
 exp4j = "0.4.8"
+coreSplashscreen = "1.0.1'"
+coreSplashscreenVersion = "1.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -23,6 +25,8 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 google-material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 exp4j = { group = "net.objecthunter", name = "exp4j", version.ref = "exp4j" }
+core-splashscreen = { group = "implementation 'androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreenVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
