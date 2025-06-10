@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_basic"
+            android:title="Basic"
+            android:icon="@drawable/grid" android:checkable="true"
+            android:checked="true" /> <item
+        android:id="@+id/menu_scientific"
+        android:title="Scientific"
+        android:icon="@drawable/flask" android:checkable="true" />
+    </group>
+    <item
+        android:id="@+id/menu_math_notes"
+        android:title="Math Notes" />
+    <item
+        android:id="@+id/menu_convert"
+        android:title="Convert" />
+</menu>
