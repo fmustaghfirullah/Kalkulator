@@ -15,16 +15,13 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.App.Starting" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@style/Theme.AppCompat.NoActionBar" > <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity
-            android:name=".MenuActivity"
-            android:exported="false" > <!-- Launcher activities must be exported -->
-        </activity>
+            android:name=".MenuActivity"> </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false" />

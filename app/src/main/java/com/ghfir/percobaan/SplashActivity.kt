@@ -1,38 +1,45 @@
-package com.ghfir.percobaan // Sesuaikan dengan package name-mu
+package com.ghfir.percobaan
 
 import android.content.Intent
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.activity.enableEdgeToEdge
+import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class SplashActivity : AppCompatActivity() {
 
-    private val SPLASH_DISPLAY_LENGTH: Long = 3000 // Durasi total splash screen terlihat (termasuk animasi)
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Panggil installSplashScreen() SEBELUM super.onCreate()
-        val splashScreen = installSplashScreen()
-
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        // Kamu mungkin tidak perlu setContentView jika activity ini hanya untuk splash
-        // dan langsung pindah, karena tema yang mengatur tampilannya.
-        // Jika kamu set layout di sini, pastikan itu tidak menimpa animasi splash.
-        // setContentView(R.layout.activity_splash)
+        setContentView(R.layout.activity_splash)
 
+        val videoView: VideoView = findViewById(R.id.video_view)
+        val videoPath = Uri.parse("android.resource://" + packageName + "/" + R.raw.faisal_splash)
 
-        // (Opsional) Jika kamu perlu menunggu task lain sebelum pindah
-        // splashScreen.setKeepOnScreenCondition { /* kondisi loadingmu */ true }
+        videoView.setVideoURI(videoPath)
 
+        videoView.setOnCompletionListener(object : MediaPlayer.OnCompletionListener {
+            override fun onCompletion(mp: MediaPlayer?) {
+                val intent = Intent(this@SplashActivity, MenuActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        })
 
-        // Pindah ke MenuActivity setelah durasi tertentu
-        Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashActivity, MenuActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, SPLASH_DISPLAY_LENGTH)
+        videoView.setOnPreparedListener(object : MediaPlayer.OnPreparedListener {
+            override fun onPrepared(mp: MediaPlayer?) {
+                mp?.isLooping = false
+                videoView.start()
+            }
+        })
+
+        videoView.setOnErrorListener(object : MediaPlayer.OnErrorListener {
+            override fun onError(mp: MediaPlayer?, what: Int, extra: Int): Boolean {
+                val intent = Intent(this@SplashActivity, MenuActivity::class.java)
+                startActivity(intent)
+                finish()
+                return true
+            }
+        })
     }
 }
