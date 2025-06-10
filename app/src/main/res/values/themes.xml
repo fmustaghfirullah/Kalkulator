@@ -55,7 +55,8 @@
             </item> <!-- Durasi dalam milidetik -->
 
             <!-- Tema yang akan diterapkan setelah splash screen selesai -->
-            <item name="postSplashScreenTheme">@style/Theme.Percobaan</item>
+            <item name="postSplashScreenTheme">@style/Theme.Kalkulator</item>
         </style>
+
 
 </resources>

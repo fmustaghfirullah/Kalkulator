@@ -44,10 +44,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.google.material)
     implementation(libs.exp4j)
-    implementation(libs.core.splashscreen)
-    implementation(libs.androidx.core.splashscreen)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-}
+    implementation("androidx.core:core-splashscreen:1.2.0-beta02")}
