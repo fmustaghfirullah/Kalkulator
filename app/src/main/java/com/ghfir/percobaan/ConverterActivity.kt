@@ -1,689 +1,763 @@
 package com.ghfir.percobaan
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatSpinner
 
 class ConverterActivity : AppCompatActivity() {
 
-    // --- UI Umum untuk Converter Activity ---
     private lateinit var btnBack: ImageButton
     private lateinit var tvConverterTitle: TextView
     private lateinit var layoutCategorySelection: LinearLayout
 
-    // --- Deklarasi Layout Konverter Spesifik ---
-    private lateinit var layoutTemperatureConverter: LinearLayout
-    private lateinit var layoutLengthConverter: LinearLayout
+    private lateinit var btnCategoryFrequency: LinearLayout
+    private lateinit var btnCategoryEnergy: LinearLayout
+    private lateinit var btnCategoryFuel: LinearLayout
+    private lateinit var btnCategoryArea: LinearLayout
+    private lateinit var btnCategoryLength: LinearLayout
+    private lateinit var btnCategoryTime: LinearLayout
+    private lateinit var btnCategorySpeed: LinearLayout
+    private lateinit var btnCategoryTemperature: LinearLayout
+    private lateinit var btnCategoryMass: LinearLayout
+    private lateinit var btnCategoryCurrent: LinearLayout
+    private lateinit var btnCategoryPressure: LinearLayout
+    private lateinit var btnCategoryAngle: LinearLayout
+
     private lateinit var layoutFrequencyConverter: LinearLayout
-    private lateinit var layoutEnergyConverter: LinearLayout
-    private lateinit var layoutFuelConverter: LinearLayout
-    private lateinit var layoutAreaConverter: LinearLayout
-    private lateinit var layoutTimeConverter: LinearLayout
-    private lateinit var layoutSpeedConverter: LinearLayout
-    private lateinit var layoutMassConverter: LinearLayout
-    private lateinit var layoutCurrentConverter: LinearLayout
-    private lateinit var layoutPressureConverter: LinearLayout
-    private lateinit var layoutAngleConverter: LinearLayout
-
-    // --- Deklarasi UI Konversi Suhu ---
-    private lateinit var etInputTemp: EditText
-    private lateinit var btnCelsiusToFahrenheit: Button
-    private lateinit var btnFahrenheitToCelsius: Button
-    private lateinit var tvTempResult: TextView
-
-    // --- Deklarasi UI Konversi Panjang ---
-    private lateinit var etInputLength: EditText
-    private lateinit var btnMeterToCm: Button // Contoh: Meter ke Sentimeter
-    private lateinit var btnCmToMeter: Button // Contoh: Sentimeter ke Meter
-    private lateinit var tvLengthResult: TextView
-
-    // --- Deklarasi UI Konversi Frekuensi ---
     private lateinit var etInputFreq: EditText
-    private lateinit var btnHzToKHz: Button
-    private lateinit var btnKHzToHz: Button
+    private lateinit var spinnerFromFreq: AppCompatSpinner
+    private lateinit var spinnerToFreq: AppCompatSpinner
+    private lateinit var btnConvertFreq: Button
     private lateinit var tvFreqResult: TextView
 
-    // --- Deklarasi UI Konversi Energi ---
+    private lateinit var layoutEnergyConverter: LinearLayout
     private lateinit var etInputEnergy: EditText
-    private lateinit var btnJoulesToCalories: Button
-    private lateinit var btnCaloriesToJoules: Button
+    private lateinit var spinnerFromEnergy: AppCompatSpinner
+    private lateinit var spinnerToEnergy: AppCompatSpinner
+    private lateinit var btnConvertEnergy: Button
     private lateinit var tvEnergyResult: TextView
 
-    // --- Deklarasi UI Konversi Bahan Bakar (Fuel) ---
+    private lateinit var layoutFuelConverter: LinearLayout
     private lateinit var etInputFuel: EditText
-    private lateinit var btnLitreToGallon: Button
-    private lateinit var btnGallonToLitre: Button
+    private lateinit var spinnerFromFuel: AppCompatSpinner
+    private lateinit var spinnerToFuel: AppCompatSpinner
+    private lateinit var btnConvertFuel: Button
     private lateinit var tvFuelResult: TextView
 
-    // --- Deklarasi UI Konversi Area ---
+    private lateinit var layoutAreaConverter: LinearLayout
     private lateinit var etInputArea: EditText
-    private lateinit var btnSqMToSqKm: Button
-    private lateinit var btnSqKmToSqM: Button
+    private lateinit var spinnerFromArea: AppCompatSpinner
+    private lateinit var spinnerToArea: AppCompatSpinner
+    private lateinit var btnConvertArea: Button
     private lateinit var tvAreaResult: TextView
 
-    // --- Deklarasi UI Konversi Waktu (Time) ---
+    private lateinit var layoutLengthConverter: LinearLayout
+    private lateinit var etInputLength: EditText
+    private lateinit var spinnerFromLength: AppCompatSpinner
+    private lateinit var spinnerToLength: AppCompatSpinner
+    private lateinit var btnConvertLength: Button
+    private lateinit var tvLengthResult: TextView
+
+    private lateinit var layoutTimeConverter: LinearLayout
     private lateinit var etInputTime: EditText
-    private lateinit var btnSecToMin: Button
-    private lateinit var btnMinToSec: Button
+    private lateinit var spinnerFromTime: AppCompatSpinner
+    private lateinit var spinnerToTime: AppCompatSpinner
+    private lateinit var btnConvertTime: Button
     private lateinit var tvTimeResult: TextView
 
-    // --- Deklarasi UI Konversi Kecepatan (Speed) ---
+    private lateinit var layoutSpeedConverter: LinearLayout
     private lateinit var etInputSpeed: EditText
-    private lateinit var btnKmphToMps: Button
-    private lateinit var btnMpsToKmph: Button
+    private lateinit var spinnerFromSpeed: AppCompatSpinner
+    private lateinit var spinnerToSpeed: AppCompatSpinner
+    private lateinit var btnConvertSpeed: Button
     private lateinit var tvSpeedResult: TextView
 
-    // --- Deklarasi UI Konversi Massa ---
+    private lateinit var layoutTemperatureConverter: LinearLayout
+    private lateinit var etInputTemp: EditText
+    private lateinit var spinnerFromTemp: AppCompatSpinner
+    private lateinit var spinnerToTemp: AppCompatSpinner
+    private lateinit var btnConvertTemp: Button
+    private lateinit var tvTempResult: TextView
+
+    private lateinit var layoutMassConverter: LinearLayout
     private lateinit var etInputMass: EditText
-    private lateinit var btnKgToGram: Button
-    private lateinit var btnGramToKg: Button
+    private lateinit var spinnerFromMass: AppCompatSpinner
+    private lateinit var spinnerToMass: AppCompatSpinner
+    private lateinit var btnConvertMass: Button
     private lateinit var tvMassResult: TextView
 
-    // --- Deklarasi UI Konversi Arus (Current) ---
+    private lateinit var layoutCurrentConverter: LinearLayout
     private lateinit var etInputCurrent: EditText
-    private lateinit var btnAmpereToMilliampere: Button
-    private lateinit var btnMilliampereToAmpere: Button
+    private lateinit var spinnerFromCurrent: AppCompatSpinner
+    private lateinit var spinnerToCurrent: AppCompatSpinner
+    private lateinit var btnConvertCurrent: Button
     private lateinit var tvCurrentResult: TextView
 
-    // --- Deklarasi UI Konversi Tekanan (Pressure) ---
+    private lateinit var layoutPressureConverter: LinearLayout
     private lateinit var etInputPressure: EditText
-    private lateinit var btnPascalToKPa: Button
-    private lateinit var btnKPaToPascal: Button
+    private lateinit var spinnerFromPressure: AppCompatSpinner
+    private lateinit var spinnerToPressure: AppCompatSpinner
+    private lateinit var btnConvertPressure: Button
     private lateinit var tvPressureResult: TextView
 
-    // --- Deklarasi UI Konversi Sudut (Angle) ---
+    private lateinit var layoutAngleConverter: LinearLayout
     private lateinit var etInputAngle: EditText
-    private lateinit var btnDegToRad: Button
-    private lateinit var btnRadToDeg: Button
+    private lateinit var spinnerFromAngle: AppCompatSpinner
+    private lateinit var spinnerToAngle: AppCompatSpinner
+    private lateinit var btnConvertAngle: Button
     private lateinit var tvAngleResult: TextView
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_converter)
 
-        // --- Inisialisasi UI Umum ---
         btnBack = findViewById(R.id.btnBack)
         tvConverterTitle = findViewById(R.id.tvConverterTitle)
         layoutCategorySelection = findViewById(R.id.layoutCategorySelection)
 
-        // --- Inisialisasi Layout Konverter Spesifik ---
-        layoutTemperatureConverter = findViewById(R.id.layoutTemperatureConverter)
-        layoutLengthConverter = findViewById(R.id.layoutLengthConverter)
+        btnCategoryFrequency = findViewById(R.id.btnCategoryFrequency)
+        btnCategoryEnergy = findViewById(R.id.btnCategoryEnergy)
+        btnCategoryFuel = findViewById(R.id.btnCategoryFuel)
+        btnCategoryArea = findViewById(R.id.btnCategoryArea)
+        btnCategoryLength = findViewById(R.id.btnCategoryLength)
+        btnCategoryTime = findViewById(R.id.btnCategoryTime)
+        btnCategorySpeed = findViewById(R.id.btnCategorySpeed)
+        btnCategoryTemperature = findViewById(R.id.btnCategoryTemperature)
+        btnCategoryMass = findViewById(R.id.btnCategoryMass)
+        btnCategoryCurrent = findViewById(R.id.btnCategoryCurrent)
+        btnCategoryPressure = findViewById(R.id.btnCategoryPressure)
+        btnCategoryAngle = findViewById(R.id.btnCategoryAngle)
+
         layoutFrequencyConverter = findViewById(R.id.layoutFrequencyConverter)
-        layoutEnergyConverter = findViewById(R.id.layoutEnergyConverter)
-        layoutFuelConverter = findViewById(R.id.layoutFuelConverter)
-        layoutAreaConverter = findViewById(R.id.layoutAreaConverter)
-        layoutTimeConverter = findViewById(R.id.layoutTimeConverter)
-        layoutSpeedConverter = findViewById(R.id.layoutSpeedConverter)
-        layoutMassConverter = findViewById(R.id.layoutMassConverter)
-        layoutCurrentConverter = findViewById(R.id.layoutCurrentConverter)
-        layoutPressureConverter = findViewById(R.id.layoutPressureConverter)
-        layoutAngleConverter = findViewById(R.id.layoutAngleConverter)
-
-        // --- Inisialisasi UI Konversi Suhu ---
-        etInputTemp = findViewById(R.id.etInputTemp)
-        btnCelsiusToFahrenheit = findViewById(R.id.btnCelsiusToFahrenheit)
-        btnFahrenheitToCelsius = findViewById(R.id.btnFahrenheitToCelsius)
-        tvTempResult = findViewById(R.id.tvTempResult)
-
-        // --- Inisialisasi UI Konversi Panjang ---
-        etInputLength = findViewById(R.id.etInputLength)
-        btnMeterToCm = findViewById(R.id.btnMeterToCm)
-        btnCmToMeter = findViewById(R.id.btnCmToMeter)
-        tvLengthResult = findViewById(R.id.tvLengthResult)
-
-        // --- Inisialisasi UI Konversi Frekuensi ---
         etInputFreq = findViewById(R.id.etInputFreq)
-        btnHzToKHz = findViewById(R.id.btnHzToKHz)
-        btnKHzToHz = findViewById(R.id.btnKHzToHz)
+        spinnerFromFreq = findViewById(R.id.spinnerFromFreq)
+        spinnerToFreq = findViewById(R.id.spinnerToFreq)
+        btnConvertFreq = findViewById(R.id.btnConvertFreq)
         tvFreqResult = findViewById(R.id.tvFreqResult)
 
-        // --- Inisialisasi UI Konversi Energi ---
+        layoutEnergyConverter = findViewById(R.id.layoutEnergyConverter)
         etInputEnergy = findViewById(R.id.etInputEnergy)
-        btnJoulesToCalories = findViewById(R.id.btnJoulesToCalories)
-        btnCaloriesToJoules = findViewById(R.id.btnCaloriesToJoules)
+        spinnerFromEnergy = findViewById(R.id.spinnerFromEnergy)
+        spinnerToEnergy = findViewById(R.id.spinnerToEnergy)
+        btnConvertEnergy = findViewById(R.id.btnConvertEnergy)
         tvEnergyResult = findViewById(R.id.tvEnergyResult)
 
-        // --- Inisialisasi UI Konversi Bahan Bakar (Fuel) ---
+        layoutFuelConverter = findViewById(R.id.layoutFuelConverter)
         etInputFuel = findViewById(R.id.etInputFuel)
-        btnLitreToGallon = findViewById(R.id.btnLitreToGallon)
-        btnGallonToLitre = findViewById(R.id.btnGallonToLitre)
+        spinnerFromFuel = findViewById(R.id.spinnerFromFuel)
+        spinnerToFuel = findViewById(R.id.spinnerToFuel)
+        btnConvertFuel = findViewById(R.id.btnConvertFuel)
         tvFuelResult = findViewById(R.id.tvFuelResult)
 
-        // --- Inisialisasi UI Konversi Area ---
+        layoutAreaConverter = findViewById(R.id.layoutAreaConverter)
         etInputArea = findViewById(R.id.etInputArea)
-        btnSqMToSqKm = findViewById(R.id.btnSqMToSqKm)
-        btnSqKmToSqM = findViewById(R.id.btnSqKmToSqM)
+        spinnerFromArea = findViewById(R.id.spinnerFromArea)
+        spinnerToArea = findViewById(R.id.spinnerToArea)
+        btnConvertArea = findViewById(R.id.btnConvertArea)
         tvAreaResult = findViewById(R.id.tvAreaResult)
 
-        // --- Inisialisasi UI Konversi Waktu (Time) ---
+        layoutLengthConverter = findViewById(R.id.layoutLengthConverter)
+        etInputLength = findViewById(R.id.etInputLength)
+        spinnerFromLength = findViewById(R.id.spinnerFromLength)
+        spinnerToLength = findViewById(R.id.spinnerToLength)
+        btnConvertLength = findViewById(R.id.btnConvertLength)
+        tvLengthResult = findViewById(R.id.tvLengthResult)
+
+        layoutTimeConverter = findViewById(R.id.layoutTimeConverter)
         etInputTime = findViewById(R.id.etInputTime)
-        btnSecToMin = findViewById(R.id.btnSecToMin)
-        btnMinToSec = findViewById(R.id.btnMinToSec)
+        spinnerFromTime = findViewById(R.id.spinnerFromTime)
+        spinnerToTime = findViewById(R.id.spinnerToTime)
+        btnConvertTime = findViewById(R.id.btnConvertTime)
         tvTimeResult = findViewById(R.id.tvTimeResult)
 
-        // --- Inisialisasi UI Konversi Kecepatan (Speed) ---
+        layoutSpeedConverter = findViewById(R.id.layoutSpeedConverter)
         etInputSpeed = findViewById(R.id.etInputSpeed)
-        btnKmphToMps = findViewById(R.id.btnKmphToMps)
-        btnMpsToKmph = findViewById(R.id.btnMpsToKmph)
+        spinnerFromSpeed = findViewById(R.id.spinnerFromSpeed)
+        spinnerToSpeed = findViewById(R.id.spinnerToSpeed)
+        btnConvertSpeed = findViewById(R.id.btnConvertSpeed)
         tvSpeedResult = findViewById(R.id.tvSpeedResult)
 
-        // --- Inisialisasi UI Konversi Massa ---
+        layoutTemperatureConverter = findViewById(R.id.layoutTemperatureConverter)
+        etInputTemp = findViewById(R.id.etInputTemp)
+        spinnerFromTemp = findViewById(R.id.spinnerFromTemp)
+        spinnerToTemp = findViewById(R.id.spinnerToTemp)
+        btnConvertTemp = findViewById(R.id.btnConvertTemp)
+        tvTempResult = findViewById(R.id.tvTempResult)
+
+        layoutMassConverter = findViewById(R.id.layoutMassConverter)
         etInputMass = findViewById(R.id.etInputMass)
-        btnKgToGram = findViewById(R.id.btnKgToGram)
-        btnGramToKg = findViewById(R.id.btnGramToKg)
+        spinnerFromMass = findViewById(R.id.spinnerFromMass)
+        spinnerToMass = findViewById(R.id.spinnerToMass)
+        btnConvertMass = findViewById(R.id.btnConvertMass)
         tvMassResult = findViewById(R.id.tvMassResult)
 
-        // --- Inisialisasi UI Konversi Arus (Current) ---
+        layoutCurrentConverter = findViewById(R.id.layoutCurrentConverter)
         etInputCurrent = findViewById(R.id.etInputCurrent)
-        btnAmpereToMilliampere = findViewById(R.id.btnAmpereToMilliampere)
-        btnMilliampereToAmpere = findViewById(R.id.btnMilliampereToAmpere)
+        spinnerFromCurrent = findViewById(R.id.spinnerFromCurrent)
+        spinnerToCurrent = findViewById(R.id.spinnerToCurrent)
+        btnConvertCurrent = findViewById(R.id.btnConvertCurrent)
         tvCurrentResult = findViewById(R.id.tvCurrentResult)
 
-        // --- Inisialisasi UI Konversi Tekanan (Pressure) ---
+        layoutPressureConverter = findViewById(R.id.layoutPressureConverter)
         etInputPressure = findViewById(R.id.etInputPressure)
-        btnPascalToKPa = findViewById(R.id.btnPascalToKPa)
-        btnKPaToPascal = findViewById(R.id.btnKPaToPascal)
+        spinnerFromPressure = findViewById(R.id.spinnerFromPressure)
+        spinnerToPressure = findViewById(R.id.spinnerToPressure)
+        btnConvertPressure = findViewById(R.id.btnConvertPressure)
         tvPressureResult = findViewById(R.id.tvPressureResult)
 
-        // --- Inisialisasi UI Konversi Sudut (Angle) ---
+        layoutAngleConverter = findViewById(R.id.layoutAngleConverter)
         etInputAngle = findViewById(R.id.etInputAngle)
-        btnDegToRad = findViewById(R.id.btnDegToRad)
-        btnRadToDeg = findViewById(R.id.btnRadToDeg)
+        spinnerFromAngle = findViewById(R.id.spinnerFromAngle)
+        spinnerToAngle = findViewById(R.id.spinnerToAngle)
+        btnConvertAngle = findViewById(R.id.btnConvertAngle)
         tvAngleResult = findViewById(R.id.tvAngleResult)
 
+        setupSpinners()
+        setupListeners()
+    }
 
-        // --- Listener Tombol Kembali ---
+    private fun setupSpinners() {
+        val temperatureUnits = arrayOf("Celsius", "Fahrenheit", "Kelvin")
+        val lengthUnits = arrayOf("Meter", "Kilometer", "Centimeter", "Milimeter", "Inch", "Foot", "Yard", "Mile")
+        val frequencyUnits = arrayOf("Hertz", "Kilohertz", "Megahertz", "Gigahertz")
+        val energyUnits = arrayOf("Joule", "Kilojoule", "Kalori", "Kilokalori", "Wh", "kWh")
+        val fuelUnits = arrayOf("Liter", "Mililiter", "Gallon (US)", "Gallon (UK)")
+        val areaUnits = arrayOf("Meter persegi", "Kilometer persegi", "Centimeter persegi", "Hektar", "Are", "Acre")
+        val timeUnits = arrayOf("Detik", "Menit", "Jam", "Hari", "Minggu", "Bulan", "Tahun")
+        val speedUnits = arrayOf("Meter/detik", "Kilometer/jam", "Mil/jam", "Knot", "Mach")
+        val massUnits = arrayOf("Gram", "Kilogram", "Miligram", "Ton", "Pound", "Ounce")
+        val currentUnits = arrayOf("Ampere", "Miliampere", "Kiloampere")
+        val pressureUnits = arrayOf("Pascal", "Kilopascal", "Megapascal", "Bar", "Atmosphere", "PSI")
+        val angleUnits = arrayOf("Derajat", "Radian", "Gradian")
+
+        setupSpinner(spinnerFromTemp, spinnerToTemp, temperatureUnits)
+        setupSpinner(spinnerFromLength, spinnerToLength, lengthUnits)
+        setupSpinner(spinnerFromFreq, spinnerToFreq, frequencyUnits)
+        setupSpinner(spinnerFromEnergy, spinnerToEnergy, energyUnits)
+        setupSpinner(spinnerFromFuel, spinnerToFuel, fuelUnits)
+        setupSpinner(spinnerFromArea, spinnerToArea, areaUnits)
+        setupSpinner(spinnerFromLength, spinnerToLength, lengthUnits)
+        setupSpinner(spinnerFromTime, spinnerToTime, timeUnits)
+        setupSpinner(spinnerFromSpeed, spinnerToSpeed, speedUnits)
+        setupSpinner(spinnerFromMass, spinnerToMass, massUnits)
+        setupSpinner(spinnerFromCurrent, spinnerToCurrent, currentUnits)
+        setupSpinner(spinnerFromPressure, spinnerToPressure, pressureUnits)
+        setupSpinner(spinnerFromAngle, spinnerToAngle, angleUnits)
+    }
+
+    private fun setupSpinner(spinnerFrom: AppCompatSpinner, spinnerTo: AppCompatSpinner, units: Array<String>) {
+        val adapter = ArrayAdapter(this, R.layout.simple_spinner_item_custom, units)
+        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item_custom)
+        spinnerFrom.adapter = adapter
+        spinnerTo.adapter = adapter
+    }
+
+    private fun setupListeners() {
         btnBack.setOnClickListener {
-            if (layoutCategorySelection.visibility == View.GONE) {
-                showCategorySelection()
-            } else {
-                onBackPressedDispatcher.onBackPressed()
-            }
+            onBackPressedDispatcher.onBackPressed()
         }
 
-        // --- Setup Listener untuk Tombol Kategori ---
-        setupCategoryButtons()
+        btnCategoryFrequency.setOnClickListener { showConverterLayout(layoutFrequencyConverter, "Frequency Converter") }
+        btnCategoryEnergy.setOnClickListener { showConverterLayout(layoutEnergyConverter, "Energy Converter") }
+        btnCategoryFuel.setOnClickListener { showConverterLayout(layoutFuelConverter, "Fuel Converter") }
+        btnCategoryArea.setOnClickListener { showConverterLayout(layoutAreaConverter, "Area Converter") }
+        btnCategoryLength.setOnClickListener { showConverterLayout(layoutLengthConverter, "Length Converter") }
+        btnCategoryTime.setOnClickListener { showConverterLayout(layoutTimeConverter, "Time Converter") }
+        btnCategorySpeed.setOnClickListener { showConverterLayout(layoutSpeedConverter, "Speed Converter") }
+        btnCategoryTemperature.setOnClickListener { showConverterLayout(layoutTemperatureConverter, "Temperature Converter") }
+        btnCategoryMass.setOnClickListener { showConverterLayout(layoutMassConverter, "Mass Converter") }
+        btnCategoryCurrent.setOnClickListener { showConverterLayout(layoutCurrentConverter, "Current Converter") }
+        btnCategoryPressure.setOnClickListener { showConverterLayout(layoutPressureConverter, "Pressure Converter") }
+        btnCategoryAngle.setOnClickListener { showConverterLayout(layoutAngleConverter, "Angle Converter") }
 
-        // --- Setup Listener untuk Tombol Konversi Spesifik ---
-        btnCelsiusToFahrenheit.setOnClickListener { convertTemperature(true) }
-        btnFahrenheitToCelsius.setOnClickListener { convertTemperature(false) }
+        btnConvertFreq.setOnClickListener { convertFrequency() }
+        btnConvertEnergy.setOnClickListener { convertEnergy() }
+        btnConvertFuel.setOnClickListener { convertFuel() }
+        btnConvertArea.setOnClickListener { convertArea() }
+        btnConvertLength.setOnClickListener { convertLength() }
+        btnConvertTime.setOnClickListener { convertTime() }
+        btnConvertSpeed.setOnClickListener { convertSpeed() }
+        btnConvertTemp.setOnClickListener { convertTemperature() }
+        btnConvertMass.setOnClickListener { convertMass() }
+        btnConvertCurrent.setOnClickListener { convertCurrent() }
+        btnConvertPressure.setOnClickListener { convertPressure() }
+        btnConvertAngle.setOnClickListener { convertAngle() }
 
-        btnMeterToCm.setOnClickListener { convertLength(true) }
-        btnCmToMeter.setOnClickListener { convertLength(false) }
-
-        btnHzToKHz.setOnClickListener { convertFrequency(true) }
-        btnKHzToHz.setOnClickListener { convertFrequency(false) }
-
-        btnJoulesToCalories.setOnClickListener { convertEnergy(true) }
-        btnCaloriesToJoules.setOnClickListener { convertEnergy(false) }
-
-        btnLitreToGallon.setOnClickListener { convertFuel(true) }
-        btnGallonToLitre.setOnClickListener { convertFuel(false) }
-
-        btnSqMToSqKm.setOnClickListener { convertArea(true) }
-        btnSqKmToSqM.setOnClickListener { convertArea(false) }
-
-        btnSecToMin.setOnClickListener { convertTime(true) }
-        btnMinToSec.setOnClickListener { convertTime(false) }
-
-        btnKmphToMps.setOnClickListener { convertSpeed(true) }
-        btnMpsToKmph.setOnClickListener { convertSpeed(false) }
-
-        btnKgToGram.setOnClickListener { convertMass(true) }
-        btnGramToKg.setOnClickListener { convertMass(false) }
-
-        btnAmpereToMilliampere.setOnClickListener { convertCurrent(true) }
-        btnMilliampereToAmpere.setOnClickListener { convertCurrent(false) }
-
-        btnPascalToKPa.setOnClickListener { convertPressure(true) }
-        btnKPaToPascal.setOnClickListener { convertPressure(false) }
-
-        btnDegToRad.setOnClickListener { convertAngle(true) }
-        btnRadToDeg.setOnClickListener { convertAngle(false) }
-
-
-        // Tampilkan layar pemilihan kategori pertama kali saat Activity dibuat
-        showCategorySelection()
+        setupInputAndSpinnerListeners(etInputFreq, spinnerFromFreq, spinnerToFreq) { convertFrequency() }
+        setupInputAndSpinnerListeners(etInputEnergy, spinnerFromEnergy, spinnerToEnergy) { convertEnergy() }
+        setupInputAndSpinnerListeners(etInputFuel, spinnerFromFuel, spinnerToFuel) { convertFuel() }
+        setupInputAndSpinnerListeners(etInputArea, spinnerFromArea, spinnerToArea) { convertArea() }
+        setupInputAndSpinnerListeners(etInputLength, spinnerFromLength, spinnerToLength) { convertLength() }
+        setupInputAndSpinnerListeners(etInputTime, spinnerFromTime, spinnerToTime) { convertTime() }
+        setupInputAndSpinnerListeners(etInputSpeed, spinnerFromSpeed, spinnerToSpeed) { convertSpeed() }
+        setupInputAndSpinnerListeners(etInputTemp, spinnerFromTemp, spinnerToTemp) { convertTemperature() }
+        setupInputAndSpinnerListeners(etInputMass, spinnerFromMass, spinnerToMass) { convertMass() }
+        setupInputAndSpinnerListeners(etInputCurrent, spinnerFromCurrent, spinnerToCurrent) { convertCurrent() }
+        setupInputAndSpinnerListeners(etInputPressure, spinnerFromPressure, spinnerToPressure) { convertPressure() }
+        setupInputAndSpinnerListeners(etInputAngle, spinnerFromAngle, spinnerToAngle) { convertAngle() }
     }
 
-    private fun setupCategoryButtons() {
-        findViewById<LinearLayout>(R.id.btnCategoryFrequency).setOnClickListener { showFrequencyConverter() }
-        findViewById<LinearLayout>(R.id.btnCategoryEnergy).setOnClickListener { showEnergyConverter() }
-        findViewById<LinearLayout>(R.id.btnCategoryFuel).setOnClickListener { showFuelConverter() }
-        findViewById<LinearLayout>(R.id.btnCategoryArea).setOnClickListener { showAreaConverter() }
-        findViewById<LinearLayout>(R.id.btnCategoryLength).setOnClickListener { showLengthConverter() }
-        findViewById<LinearLayout>(R.id.btnCategoryTime).setOnClickListener { showTimeConverter() }
-        findViewById<LinearLayout>(R.id.btnCategorySpeed).setOnClickListener { showSpeedConverter() }
-        findViewById<LinearLayout>(R.id.btnCategoryTemperature).setOnClickListener { showTemperatureConverter() }
-        findViewById<LinearLayout>(R.id.btnCategoryMass).setOnClickListener { showMassConverter() }
-        findViewById<LinearLayout>(R.id.btnCategoryCurrent).setOnClickListener { showCurrentConverter() }
-        findViewById<LinearLayout>(R.id.btnCategoryPressure).setOnClickListener { showPressureConverter() }
-        findViewById<LinearLayout>(R.id.btnCategoryAngle).setOnClickListener { showAngleConverter() }
+    private fun setupInputAndSpinnerListeners(editText: EditText, spinnerFrom: AppCompatSpinner, spinnerTo: AppCompatSpinner, convertAction: () -> Unit) {
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                convertAction()
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        val itemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                convertAction()
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+        spinnerFrom.onItemSelectedListener = itemSelectedListener
+        spinnerTo.onItemSelectedListener = itemSelectedListener
     }
 
-    private fun hideAllConverters() {
-        layoutTemperatureConverter.visibility = View.GONE
-        layoutLengthConverter.visibility = View.GONE
+    private fun showConverterLayout(layoutToShow: LinearLayout, title: String) {
+        layoutCategorySelection.visibility = View.GONE
         layoutFrequencyConverter.visibility = View.GONE
         layoutEnergyConverter.visibility = View.GONE
         layoutFuelConverter.visibility = View.GONE
         layoutAreaConverter.visibility = View.GONE
+        layoutLengthConverter.visibility = View.GONE
         layoutTimeConverter.visibility = View.GONE
         layoutSpeedConverter.visibility = View.GONE
+        layoutTemperatureConverter.visibility = View.GONE
         layoutMassConverter.visibility = View.GONE
         layoutCurrentConverter.visibility = View.GONE
         layoutPressureConverter.visibility = View.GONE
         layoutAngleConverter.visibility = View.GONE
+
+        layoutToShow.visibility = View.VISIBLE
+        tvConverterTitle.text = title
+
+        when (layoutToShow.id) {
+            R.id.layoutFrequencyConverter -> convertFrequency()
+            R.id.layoutEnergyConverter -> convertEnergy()
+            R.id.layoutFuelConverter -> convertFuel()
+            R.id.layoutAreaConverter -> convertArea()
+            R.id.layoutLengthConverter -> convertLength()
+            R.id.layoutTimeConverter -> convertTime()
+            R.id.layoutSpeedConverter -> convertSpeed()
+            R.id.layoutTemperatureConverter -> convertTemperature()
+            R.id.layoutMassConverter -> convertMass()
+            R.id.layoutCurrentConverter -> convertCurrent()
+            R.id.layoutPressureConverter -> convertPressure()
+            R.id.layoutAngleConverter -> convertAngle()
+        }
     }
 
-    private fun showCategorySelection() {
-        tvConverterTitle.text = "Unit Converter"
-        layoutCategorySelection.visibility = View.VISIBLE
-        hideAllConverters()
+    override fun onBackPressed() {
+        if (layoutCategorySelection.visibility == View.GONE) {
+            layoutCategorySelection.visibility = View.VISIBLE
+            layoutFrequencyConverter.visibility = View.GONE
+            layoutEnergyConverter.visibility = View.GONE
+            layoutFuelConverter.visibility = View.GONE
+            layoutAreaConverter.visibility = View.GONE
+            layoutLengthConverter.visibility = View.GONE
+            layoutTimeConverter.visibility = View.GONE
+            layoutSpeedConverter.visibility = View.GONE
+            layoutTemperatureConverter.visibility = View.GONE
+            layoutMassConverter.visibility = View.GONE
+            layoutCurrentConverter.visibility = View.GONE
+            layoutPressureConverter.visibility = View.GONE
+            layoutAngleConverter.visibility = View.GONE
+            tvConverterTitle.text = "Unit Converter"
+        } else {
+            super.onBackPressed()
+        }
     }
 
-    private fun showTemperatureConverter() {
-        tvConverterTitle.text = "Temperature Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutTemperatureConverter.visibility = View.VISIBLE
-        etInputTemp.setText("")
-        tvTempResult.text = "Hasil: -"
-    }
-
-    private fun showLengthConverter() {
-        tvConverterTitle.text = "Length Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutLengthConverter.visibility = View.VISIBLE
-        etInputLength.setText("")
-        tvLengthResult.text = "Hasil: -"
-    }
-
-    private fun showFrequencyConverter() {
-        tvConverterTitle.text = "Frequency Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutFrequencyConverter.visibility = View.VISIBLE
-        etInputFreq.setText("")
-        tvFreqResult.text = "Hasil: -"
-    }
-
-    private fun showEnergyConverter() {
-        tvConverterTitle.text = "Energy Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutEnergyConverter.visibility = View.VISIBLE
-        etInputEnergy.setText("")
-        tvEnergyResult.text = "Hasil: -"
-    }
-
-    private fun showFuelConverter() {
-        tvConverterTitle.text = "Fuel Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutFuelConverter.visibility = View.VISIBLE
-        etInputFuel.setText("")
-        tvFuelResult.text = "Hasil: -"
-    }
-
-    private fun showAreaConverter() {
-        tvConverterTitle.text = "Area Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutAreaConverter.visibility = View.VISIBLE
-        etInputArea.setText("")
-        tvAreaResult.text = "Hasil: -"
-    }
-
-    private fun showTimeConverter() {
-        tvConverterTitle.text = "Time Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutTimeConverter.visibility = View.VISIBLE
-        etInputTime.setText("")
-        tvTimeResult.text = "Hasil: -"
-    }
-
-    private fun showSpeedConverter() {
-        tvConverterTitle.text = "Speed Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutSpeedConverter.visibility = View.VISIBLE
-        etInputSpeed.setText("")
-        tvSpeedResult.text = "Hasil: -"
-    }
-
-    private fun showMassConverter() {
-        tvConverterTitle.text = "Mass Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutMassConverter.visibility = View.VISIBLE
-        etInputMass.setText("")
-        tvMassResult.text = "Hasil: -"
-    }
-
-    private fun showCurrentConverter() {
-        tvConverterTitle.text = "Current Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutCurrentConverter.visibility = View.VISIBLE
-        etInputCurrent.setText("")
-        tvCurrentResult.text = "Hasil: -"
-    }
-
-    private fun showPressureConverter() {
-        tvConverterTitle.text = "Pressure Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutPressureConverter.visibility = View.VISIBLE
-        etInputPressure.setText("")
-        tvPressureResult.text = "Hasil: -"
-    }
-
-    private fun showAngleConverter() {
-        tvConverterTitle.text = "Angle Converter"
-        layoutCategorySelection.visibility = View.GONE
-        hideAllConverters()
-        layoutAngleConverter.visibility = View.VISIBLE
-        etInputAngle.setText("")
-        tvAngleResult.text = "Hasil: -"
-    }
-
-    // --- Fungsi Konversi ---
-    private fun convertTemperature(isCToF: Boolean) {
-        val inputText = etInputTemp.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai suhu", Toast.LENGTH_SHORT).show()
+    private fun convertFrequency() {
+        val inputValue = etInputFreq.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvFreqResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isCToF) {
-                result = (inputValue * 9 / 5) + 32
-                resultText = String.format("%.2f °F", result)
-            } else {
-                result = (inputValue - 32) * 5 / 9
-                resultText = String.format("%.2f °C", result)
-            }
-            tvTempResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvTempResult.text = "Error"
+        val fromUnit = spinnerFromFreq.selectedItem.toString()
+        val toUnit = spinnerToFreq.selectedItem.toString()
+        val result = performFrequencyConversion(inputValue, fromUnit, toUnit)
+        tvFreqResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performFrequencyConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Hertz" -> {}
+            "Kilohertz" -> baseValue *= 1000.0
+            "Megahertz" -> baseValue *= 1_000_000.0
+            "Gigahertz" -> baseValue *= 1_000_000_000.0
+        }
+
+        return when (toUnit) {
+            "Hertz" -> baseValue
+            "Kilohertz" -> baseValue / 1000.0
+            "Megahertz" -> baseValue / 1_000_000.0
+            "Gigahertz" -> baseValue / 1_000_000_000.0
+            else -> 0.0
         }
     }
 
-    private fun convertLength(isMToCm: Boolean) {
-        val inputText = etInputLength.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai panjang", Toast.LENGTH_SHORT).show()
+    private fun convertEnergy() {
+        val inputValue = etInputEnergy.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvEnergyResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isMToCm) {
-                result = inputValue * 100 // Meter ke Sentimeter
-                resultText = String.format("%.2f cm", result)
-            } else {
-                result = inputValue / 100 // Sentimeter ke Meter
-                resultText = String.format("%.2f m", result)
-            }
-            tvLengthResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvLengthResult.text = "Error"
+        val fromUnit = spinnerFromEnergy.selectedItem.toString()
+        val toUnit = spinnerToEnergy.selectedItem.toString()
+        val result = performEnergyConversion(inputValue, fromUnit, toUnit)
+        tvEnergyResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performEnergyConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Joule" -> {}
+            "Kilojoule" -> baseValue *= 1000.0
+            "Kalori" -> baseValue *= 4.184
+            "Kilokalori" -> baseValue *= 4184.0
+            "Wh" -> baseValue *= 3600.0
+            "kWh" -> baseValue *= 3_600_000.0
+        }
+
+        return when (toUnit) {
+            "Joule" -> baseValue
+            "Kilojoule" -> baseValue / 1000.0
+            "Kalori" -> baseValue / 4.184
+            "Kilokalori" -> baseValue / 4184.0
+            "Wh" -> baseValue / 3600.0
+            "kWh" -> baseValue / 3_600_000.0
+            else -> 0.0
         }
     }
 
-    private fun convertFrequency(isHzToKHz: Boolean) {
-        val inputText = etInputFreq.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai frekuensi", Toast.LENGTH_SHORT).show()
+    private fun convertFuel() {
+        val inputValue = etInputFuel.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvFuelResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isHzToKHz) {
-                result = inputValue / 1000 // Hz ke KHz
-                resultText = String.format("%.2f KHz", result)
-            } else {
-                result = inputValue * 1000 // KHz ke Hz
-                resultText = String.format("%.2f Hz", result)
-            }
-            tvFreqResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvFreqResult.text = "Error"
+        val fromUnit = spinnerFromFuel.selectedItem.toString()
+        val toUnit = spinnerToFuel.selectedItem.toString()
+        val result = performFuelConversion(inputValue, fromUnit, toUnit)
+        tvFuelResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performFuelConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Liter" -> {}
+            "Mililiter" -> baseValue /= 1000.0
+            "Gallon (US)" -> baseValue *= 3.78541
+            "Gallon (UK)" -> baseValue *= 4.54609
+        }
+
+        return when (toUnit) {
+            "Liter" -> baseValue
+            "Mililiter" -> baseValue * 1000.0
+            "Gallon (US)" -> baseValue / 3.78541
+            "Gallon (UK)" -> baseValue / 4.54609
+            else -> 0.0
         }
     }
 
-    private fun convertEnergy(isJoulesToCalories: Boolean) {
-        val inputText = etInputEnergy.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai energi", Toast.LENGTH_SHORT).show()
+    private fun convertArea() {
+        val inputValue = etInputArea.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvAreaResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isJoulesToCalories) {
-                result = inputValue * 0.239006 // Joule ke Kalori
-                resultText = String.format("%.2f cal", result)
-            } else {
-                result = inputValue * 4.184 // Kalori ke Joule
-                resultText = String.format("%.2f J", result)
-            }
-            tvEnergyResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvEnergyResult.text = "Error"
+        val fromUnit = spinnerFromArea.selectedItem.toString()
+        val toUnit = spinnerToArea.selectedItem.toString()
+        val result = performAreaConversion(inputValue, fromUnit, toUnit)
+        tvAreaResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performAreaConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Meter persegi" -> {}
+            "Kilometer persegi" -> baseValue *= 1_000_000.0
+            "Centimeter persegi" -> baseValue /= 10_000.0
+            "Hektar" -> baseValue *= 10_000.0
+            "Are" -> baseValue *= 100.0
+            "Acre" -> baseValue *= 4046.86
+        }
+
+        return when (toUnit) {
+            "Meter persegi" -> baseValue
+            "Kilometer persegi" -> baseValue / 1_000_000.0
+            "Centimeter persegi" -> baseValue * 10_000.0
+            "Hektar" -> baseValue / 10_000.0
+            "Are" -> baseValue / 100.0
+            "Acre" -> baseValue / 4046.86
+            else -> 0.0
         }
     }
 
-    private fun convertFuel(isLitreToGallon: Boolean) {
-        val inputText = etInputFuel.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai bahan bakar", Toast.LENGTH_SHORT).show()
+    private fun convertLength() {
+        val inputValue = etInputLength.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvLengthResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isLitreToGallon) {
-                result = inputValue * 0.264172 // Litre ke Gallon (US liquid)
-                resultText = String.format("%.2f gal", result)
-            } else {
-                result = inputValue * 3.78541 // Gallon (US liquid) ke Litre
-                resultText = String.format("%.2f L", result)
-            }
-            tvFuelResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvFuelResult.text = "Error"
+        val fromUnit = spinnerFromLength.selectedItem.toString()
+        val toUnit = spinnerToLength.selectedItem.toString()
+        val result = performLengthConversion(inputValue, fromUnit, toUnit)
+        tvLengthResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performLengthConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Meter" -> {}
+            "Kilometer" -> baseValue *= 1000.0
+            "Centimeter" -> baseValue /= 100.0
+            "Milimeter" -> baseValue /= 1000.0
+            "Inch" -> baseValue *= 0.0254
+            "Foot" -> baseValue *= 0.3048
+            "Yard" -> baseValue *= 0.9144
+            "Mile" -> baseValue *= 1609.34
+        }
+
+        return when (toUnit) {
+            "Meter" -> baseValue
+            "Kilometer" -> baseValue / 1000.0
+            "Centimeter" -> baseValue * 100.0
+            "Milimeter" -> baseValue * 1000.0
+            "Inch" -> baseValue / 0.0254
+            "Foot" -> baseValue / 0.3048
+            "Yard" -> baseValue / 0.9144
+            "Mile" -> baseValue / 1609.34
+            else -> 0.0
         }
     }
 
-    private fun convertArea(isSqMToSqKm: Boolean) {
-        val inputText = etInputArea.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai area", Toast.LENGTH_SHORT).show()
+    private fun convertTime() {
+        val inputValue = etInputTime.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvTimeResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isSqMToSqKm) {
-                result = inputValue / 1_000_000 // Meter persegi ke Kilometer persegi
-                resultText = String.format("%.6f km²", result)
-            } else {
-                result = inputValue * 1_000_000 // Kilometer persegi ke Meter persegi
-                resultText = String.format("%.2f m²", result)
-            }
-            tvAreaResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvAreaResult.text = "Error"
+        val fromUnit = spinnerFromTime.selectedItem.toString()
+        val toUnit = spinnerToTime.selectedItem.toString()
+        val result = performTimeConversion(inputValue, fromUnit, toUnit)
+        tvTimeResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performTimeConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Detik" -> {}
+            "Menit" -> baseValue *= 60.0
+            "Jam" -> baseValue *= 3600.0
+            "Hari" -> baseValue *= 86400.0
+            "Minggu" -> baseValue *= 604800.0
+            "Bulan" -> baseValue *= 2592000.0
+            "Tahun" -> baseValue *= 31536000.0
+        }
+
+        return when (toUnit) {
+            "Detik" -> baseValue
+            "Menit" -> baseValue / 60.0
+            "Jam" -> baseValue / 3600.0
+            "Hari" -> baseValue / 86400.0
+            "Minggu" -> baseValue / 604800.0
+            "Bulan" -> baseValue / 2592000.0
+            "Tahun" -> baseValue / 31536000.0
+            else -> 0.0
         }
     }
 
-    private fun convertTime(isSecToMin: Boolean) {
-        val inputText = etInputTime.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai waktu", Toast.LENGTH_SHORT).show()
+    private fun convertSpeed() {
+        val inputValue = etInputSpeed.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvSpeedResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isSecToMin) {
-                result = inputValue / 60 // Detik ke Menit
-                resultText = String.format("%.2f min", result)
-            } else {
-                result = inputValue * 60 // Menit ke Detik
-                resultText = String.format("%.2f sec", result)
-            }
-            tvTimeResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvTimeResult.text = "Error"
+        val fromUnit = spinnerFromSpeed.selectedItem.toString()
+        val toUnit = spinnerToSpeed.selectedItem.toString()
+        val result = performSpeedConversion(inputValue, fromUnit, toUnit)
+        tvSpeedResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performSpeedConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Meter/detik" -> {}
+            "Kilometer/jam" -> baseValue /= 3.6
+            "Mil/jam" -> baseValue *= 0.44704
+            "Knot" -> baseValue *= 0.514444
+            "Mach" -> baseValue *= 343.0
+        }
+
+        return when (toUnit) {
+            "Meter/detik" -> baseValue
+            "Kilometer/jam" -> baseValue * 3.6
+            "Mil/jam" -> baseValue / 0.44704
+            "Knot" -> baseValue / 0.514444
+            "Mach" -> baseValue / 343.0
+            else -> 0.0
         }
     }
 
-    private fun convertSpeed(isKmphToMps: Boolean) {
-        val inputText = etInputSpeed.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai kecepatan", Toast.LENGTH_SHORT).show()
+    private fun convertTemperature() {
+        val inputValue = etInputTemp.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvTempResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isKmphToMps) {
-                result = inputValue * (1000.0 / 3600.0) // km/h ke m/s
-                resultText = String.format("%.2f m/s", result)
-            } else {
-                result = inputValue * (3600.0 / 1000.0) // m/s ke km/h
-                resultText = String.format("%.2f km/h", result)
-            }
-            tvSpeedResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvSpeedResult.text = "Error"
+        val fromUnit = spinnerFromTemp.selectedItem.toString()
+        val toUnit = spinnerToTemp.selectedItem.toString()
+        val result = performTemperatureConversion(inputValue, fromUnit, toUnit)
+        tvTempResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performTemperatureConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var celsius = 0.0
+        when (fromUnit) {
+            "Celsius" -> celsius = value
+            "Fahrenheit" -> celsius = (value - 32) * 5 / 9
+            "Kelvin" -> celsius = value - 273.15
+        }
+
+        return when (toUnit) {
+            "Celsius" -> celsius
+            "Fahrenheit" -> (celsius * 9 / 5) + 32
+            "Kelvin" -> celsius + 273.15
+            else -> 0.0
         }
     }
 
-    private fun convertMass(isKgToGram: Boolean) {
-        val inputText = etInputMass.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai massa", Toast.LENGTH_SHORT).show()
+    private fun convertMass() {
+        val inputValue = etInputMass.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvMassResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isKgToGram) {
-                result = inputValue * 1000 // Kilogram ke Gram
-                resultText = String.format("%.2f g", result)
-            } else {
-                result = inputValue / 1000 // Gram ke Kilogram
-                resultText = String.format("%.2f kg", result)
-            }
-            tvMassResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvMassResult.text = "Error"
+        val fromUnit = spinnerFromMass.selectedItem.toString()
+        val toUnit = spinnerToMass.selectedItem.toString()
+        val result = performMassConversion(inputValue, fromUnit, toUnit)
+        tvMassResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performMassConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Gram" -> {}
+            "Kilogram" -> baseValue *= 1000.0
+            "Miligram" -> baseValue /= 1000.0
+            "Ton" -> baseValue *= 1_000_000.0
+            "Pound" -> baseValue *= 453.592
+            "Ounce" -> baseValue *= 28.3495
+        }
+
+        return when (toUnit) {
+            "Gram" -> baseValue
+            "Kilogram" -> baseValue / 1000.0
+            "Miligram" -> baseValue * 1000.0
+            "Ton" -> baseValue / 1_000_000.0
+            "Pound" -> baseValue / 453.592
+            "Ounce" -> baseValue / 28.3495
+            else -> 0.0
         }
     }
 
-    private fun convertCurrent(isAmpereToMilliampere: Boolean) {
-        val inputText = etInputCurrent.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai arus", Toast.LENGTH_SHORT).show()
+    private fun convertCurrent() {
+        val inputValue = etInputCurrent.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvCurrentResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isAmpereToMilliampere) {
-                result = inputValue * 1000 // Ampere ke Milliampere
-                resultText = String.format("%.2f mA", result)
-            } else {
-                result = inputValue / 1000 // Milliampere ke Ampere
-                resultText = String.format("%.2f A", result)
-            }
-            tvCurrentResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvCurrentResult.text = "Error"
+        val fromUnit = spinnerFromCurrent.selectedItem.toString()
+        val toUnit = spinnerToCurrent.selectedItem.toString()
+        val result = performCurrentConversion(inputValue, fromUnit, toUnit)
+        tvCurrentResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performCurrentConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Ampere" -> {}
+            "Miliampere" -> baseValue /= 1000.0
+            "Kiloampere" -> baseValue *= 1000.0
+        }
+
+        return when (toUnit) {
+            "Ampere" -> baseValue
+            "Miliampere" -> baseValue * 1000.0
+            "Kiloampere" -> baseValue / 1000.0
+            else -> 0.0
         }
     }
 
-    private fun convertPressure(isPascalToKPa: Boolean) {
-        val inputText = etInputPressure.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai tekanan", Toast.LENGTH_SHORT).show()
+    private fun convertPressure() {
+        val inputValue = etInputPressure.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvPressureResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isPascalToKPa) {
-                result = inputValue / 1000 // Pascal ke KiloPascal
-                resultText = String.format("%.2f kPa", result)
-            } else {
-                result = inputValue * 1000 // KiloPascal ke Pascal
-                resultText = String.format("%.2f Pa", result)
-            }
-            tvPressureResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvPressureResult.text = "Error"
+        val fromUnit = spinnerFromPressure.selectedItem.toString()
+        val toUnit = spinnerToPressure.selectedItem.toString()
+        val result = performPressureConversion(inputValue, fromUnit, toUnit)
+        tvPressureResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performPressureConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Pascal" -> {}
+            "Kilopascal" -> baseValue *= 1000.0
+            "Megapascal" -> baseValue *= 1_000_000.0
+            "Bar" -> baseValue *= 100_000.0
+            "Atmosphere" -> baseValue *= 101325.0
+            "PSI" -> baseValue *= 6894.76
+        }
+
+        return when (toUnit) {
+            "Pascal" -> baseValue
+            "Kilopascal" -> baseValue / 1000.0
+            "Megapascal" -> baseValue / 1_000_000.0
+            "Bar" -> baseValue / 100_000.0
+            "Atmosphere" -> baseValue / 101325.0
+            "PSI" -> baseValue / 6894.76
+            else -> 0.0
         }
     }
 
-    private fun convertAngle(isDegToRad: Boolean) {
-        val inputText = etInputAngle.text.toString()
-        if (inputText.isEmpty()) {
-            Toast.makeText(this, "Masukkan nilai sudut", Toast.LENGTH_SHORT).show()
+    private fun convertAngle() {
+        val inputValue = etInputAngle.text.toString().toDoubleOrNull()
+        if (inputValue == null) {
+            tvAngleResult.text = "Hasil: -"
             return
         }
-        try {
-            val inputValue = inputText.toDouble()
-            val result: Double
-            val resultText: String
-            if (isDegToRad) {
-                result = Math.toRadians(inputValue) // Derajat ke Radian
-                resultText = String.format("%.2f rad", result)
-            } else {
-                result = Math.toDegrees(inputValue) // Radian ke Derajat
-                resultText = String.format("%.2f °", result)
-            }
-            tvAngleResult.text = resultText
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Input tidak valid. Masukkan angka.", Toast.LENGTH_SHORT).show()
-            tvAngleResult.text = "Error"
+        val fromUnit = spinnerFromAngle.selectedItem.toString()
+        val toUnit = spinnerToAngle.selectedItem.toString()
+        val result = performAngleConversion(inputValue, fromUnit, toUnit)
+        tvAngleResult.text = "Hasil: %.4f".format(result)
+    }
+
+    private fun performAngleConversion(value: Double, fromUnit: String, toUnit: String): Double {
+        var baseValue = value
+        when (fromUnit) {
+            "Derajat" -> baseValue = Math.toRadians(value)
+            "Radian" -> {}
+            "Gradian" -> baseValue = value * (Math.PI / 200.0)
+        }
+
+        return when (toUnit) {
+            "Derajat" -> Math.toDegrees(baseValue)
+            "Radian" -> baseValue
+            "Gradian" -> baseValue / (Math.PI / 200.0)
+            else -> 0.0
         }
     }
 }

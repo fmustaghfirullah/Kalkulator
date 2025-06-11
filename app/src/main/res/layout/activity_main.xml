@@ -384,6 +384,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCalcMenu"
             style="@style/CalculatorButton.DarkGray"
+            android:contentDescription="ic_kalkulator"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="1"

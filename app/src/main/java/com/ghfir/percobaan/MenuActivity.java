@@ -13,12 +13,15 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 Button btnMoveActivity;
+Button btnMoveConverter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_menu);
     btnMoveActivity = findViewById(R.id.btn_move_activity);
     btnMoveActivity.setOnClickListener(this);
+    btnMoveConverter = findViewById(R.id.btn_move_converter);
+    btnMoveConverter.setOnClickListener(this);
     }
 //    @Override
 //    public void onClick(View v) {
@@ -37,9 +40,11 @@ Button btnMoveActivity;
             startActivity(moveIntent);
         }
         // Add more else if blocks here for other views if needed
-        // else if (id == R.id.another_button) {
+         else if (id == R.id.btn_move_converter) {
         //    // Do something else
-        // }
+        Intent moveConverter = new Intent(MenuActivity.this, ConverterActivity.class);
+        startActivity(moveConverter);
+         }
     }
 
 

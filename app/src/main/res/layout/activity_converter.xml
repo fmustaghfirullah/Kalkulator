@@ -44,7 +44,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="8dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:visibility="visible">
 
         <GridLayout
             android:layout_width="match_parent"
@@ -406,139 +407,12 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layoutTemperatureConverter"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:visibility="gone">
-
-        <EditText
-            android:id="@+id/etInputTemp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Masukkan suhu"
-            android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
-            android:textColorHint="#888888"
-            android:textSize="24sp"
-            android:backgroundTint="@color/white"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
-
-            <Button
-                android:id="@+id/btnCelsiusToFahrenheit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="°C to °F"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-
-            <Button
-                android:id="@+id/btnFahrenheitToCelsius"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="°F to °C"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvTempResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hasil: -"
-            android:textColor="@color/white"
-            android:textSize="32sp"
-            android:gravity="center"
-            android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layoutLengthConverter"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:visibility="gone">
-
-        <EditText
-            android:id="@+id/etInputLength"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Masukkan panjang"
-            android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
-            android:textColorHint="#888888"
-            android:textSize="24sp"
-            android:backgroundTint="@color/white"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
-
-            <Button
-                android:id="@+id/btnMeterToCm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="M to CM"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-
-            <Button
-                android:id="@+id/btnCmToMeter"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="CM to M"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvLengthResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hasil: -"
-            android:textColor="@color/white"
-            android:textSize="32sp"
-            android:gravity="center"
-            android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/layoutFrequencyConverter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@android:color/black"
         android:visibility="gone">
 
         <EditText
@@ -554,36 +428,46 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromFreq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/btnHzToKHz"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Hz to KHz"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToFreq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
 
-            <Button
-                android:id="@+id/btnKHzToHz"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="KHz to Hz"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnConvertFreq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tvFreqResult"
@@ -603,6 +487,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@android:color/black"
         android:visibility="gone">
 
         <EditText
@@ -618,36 +503,46 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromEnergy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/btnJoulesToCalories"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Joules to Calories"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToEnergy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
 
-            <Button
-                android:id="@+id/btnCaloriesToJoules"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Calories to Joules"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnConvertEnergy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tvEnergyResult"
@@ -667,13 +562,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@android:color/black"
         android:visibility="gone">
 
         <EditText
             android:id="@+id/etInputFuel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan nilai bahan bakar"
+            android:hint="Masukkan volume bahan bakar"
             android:inputType="numberDecimal|numberSigned"
             android:textColor="@color/white"
             android:textColorHint="#888888"
@@ -682,36 +578,46 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromFuel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/btnLitreToGallon"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Litre to Gallon"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToFuel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
 
-            <Button
-                android:id="@+id/btnGallonToLitre"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Gallon to Litre"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnConvertFuel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tvFuelResult"
@@ -731,13 +637,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@android:color/black"
         android:visibility="gone">
 
         <EditText
             android:id="@+id/etInputArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan nilai area"
+            android:hint="Masukkan luas"
             android:inputType="numberDecimal|numberSigned"
             android:textColor="@color/white"
             android:textColorHint="#888888"
@@ -746,39 +653,124 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/btnSqMToSqKm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="m² to km²"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
 
-            <Button
-                android:id="@+id/btnSqKmToSqM"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="km² to m²"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnConvertArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tvAreaResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hasil: -"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="@drawable/rounded_dark_gray_bg"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutLengthConverter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/black"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/etInputLength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan panjang"
+            android:inputType="numberDecimal|numberSigned"
+            android:textColor="@color/white"
+            android:textColorHint="#888888"
+            android:textSize="24sp"
+            android:backgroundTint="@color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromLength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToLength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btnConvertLength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvLengthResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
@@ -795,13 +787,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@android:color/black"
         android:visibility="gone">
 
         <EditText
             android:id="@+id/etInputTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan nilai waktu"
+            android:hint="Masukkan waktu"
             android:inputType="numberDecimal|numberSigned"
             android:textColor="@color/white"
             android:textColorHint="#888888"
@@ -810,36 +803,46 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/btnSecToMin"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Sec to Min"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
 
-            <Button
-                android:id="@+id/btnMinToSec"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Min to Sec"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnConvertTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tvTimeResult"
@@ -859,6 +862,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@android:color/black"
         android:visibility="gone">
 
         <EditText
@@ -874,39 +878,124 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromSpeed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/btnKmphToMps"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="km/h to m/s"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
 
-            <Button
-                android:id="@+id/btnMpsToKmph"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="m/s to km/h"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnConvertSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tvSpeedResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hasil: -"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="@drawable/rounded_dark_gray_bg"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutTemperatureConverter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/black"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/etInputTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan suhu"
+            android:inputType="numberDecimal|numberSigned"
+            android:textColor="@color/white"
+            android:textColorHint="#888888"
+            android:textSize="24sp"
+            android:backgroundTint="@color/white"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btnConvertTemp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvTempResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
@@ -923,13 +1012,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@android:color/black"
         android:visibility="gone">
 
         <EditText
             android:id="@+id/etInputMass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan massa"
+            android:hint="Masukkan nilai massa"
             android:inputType="numberDecimal|numberSigned"
             android:textColor="@color/white"
             android:textColorHint="#888888"
@@ -938,36 +1028,46 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromMass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/btnKgToGram"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Kg to Gram"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToMass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
 
-            <Button
-                android:id="@+id/btnGramToKg"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Gram to Kg"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnConvertMass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tvMassResult"
@@ -987,13 +1087,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@android:color/black"
         android:visibility="gone">
 
         <EditText
             android:id="@+id/etInputCurrent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan nilai arus"
+            android:hint="Masukkan arus"
             android:inputType="numberDecimal|numberSigned"
             android:textColor="@color/white"
             android:textColorHint="#888888"
@@ -1002,36 +1103,46 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromCurrent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/btnAmpereToMilliampere"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="A to mA"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToCurrent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
 
-            <Button
-                android:id="@+id/btnMilliampereToAmpere"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="mA to A"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnConvertCurrent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tvCurrentResult"
@@ -1051,13 +1162,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@android:color/black"
         android:visibility="gone">
 
         <EditText
             android:id="@+id/etInputPressure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan nilai tekanan"
+            android:hint="Masukkan tekanan"
             android:inputType="numberDecimal|numberSigned"
             android:textColor="@color/white"
             android:textColorHint="#888888"
@@ -1066,36 +1178,46 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromPressure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/btnPascalToKPa"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pa to kPa"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToPressure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
 
-            <Button
-                android:id="@+id/btnKPaToPascal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="kPa to Pa"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnConvertPressure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tvPressureResult"
@@ -1115,13 +1237,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
+        android:background="@android:color/black"
         android:visibility="gone">
 
         <EditText
             android:id="@+id/etInputAngle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan nilai sudut"
+            android:hint="Masukkan sudut"
             android:inputType="numberDecimal|numberSigned"
             android:textColor="@color/white"
             android:textColorHint="#888888"
@@ -1130,36 +1253,46 @@
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dari Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerFromAngle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="16dp">
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"/>
 
-            <Button
-                android:id="@+id/btnDegToRad"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Deg to Rad"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ke Unit:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerToAngle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:padding="8dp"
+            android:layout_marginBottom="24dp"/>
 
-            <Button
-                android:id="@+id/btnRadToDeg"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Rad to Deg"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:padding="12dp"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnConvertAngle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convert"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/tvAngleResult"

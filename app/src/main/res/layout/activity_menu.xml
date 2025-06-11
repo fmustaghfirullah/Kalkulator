@@ -23,9 +23,9 @@
         android:layout_height="wrap_content"
         android:text="@string/nama"
         android:paddingBottom="10dp"
-        android:fontFamily="serif-monospace"
+        android:fontFamily=""
         android:textSize="20dp"
-        android:textColor="#A704ED"
+        android:textColor="#FB0000"
         android:textStyle="bold"/>
 
     <com.google.android.material.button.MaterialButton
@@ -37,5 +37,13 @@
         android:text="@string/move_activity"
         tools:ignore="MissingConstraints" />
 
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_move_converter"
+        style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
+        android:text="Pindah Konverter"
+        tools:ignore="MissingConstraints"
+        />
 
 </LinearLayout>
