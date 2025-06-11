@@ -412,7 +412,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -421,10 +421,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan frekuensi"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -432,14 +432,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromFreq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -447,14 +447,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToFreq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -474,11 +474,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -487,7 +487,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -496,10 +496,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan energi"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -507,14 +507,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromEnergy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -522,14 +522,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToEnergy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -549,11 +549,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -562,7 +562,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -571,10 +571,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan volume bahan bakar"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -582,14 +582,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromFuel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -597,14 +597,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToFuel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -624,11 +624,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -637,7 +637,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -646,10 +646,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan luas"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -657,14 +657,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -672,14 +672,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -699,11 +699,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -712,7 +712,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -721,10 +721,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan panjang"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -732,14 +732,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromLength"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -747,14 +747,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToLength"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -774,11 +774,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -787,7 +787,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -796,10 +796,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan waktu"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -807,14 +807,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -822,14 +822,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -849,11 +849,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -862,7 +862,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -871,10 +871,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan kecepatan"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -882,14 +882,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromSpeed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -897,14 +897,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToSpeed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -924,11 +924,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -937,7 +937,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -946,10 +946,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan suhu"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -957,14 +957,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromTemp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -972,14 +972,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToTemp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -999,11 +999,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -1012,7 +1012,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -1021,10 +1021,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan nilai massa"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -1032,14 +1032,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromMass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -1047,14 +1047,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToMass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -1074,11 +1074,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -1087,7 +1087,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -1096,10 +1096,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan arus"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -1107,14 +1107,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromCurrent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -1122,14 +1122,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToCurrent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -1149,11 +1149,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -1162,7 +1162,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -1171,10 +1171,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan tekanan"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -1182,14 +1182,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromPressure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -1197,14 +1197,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToPressure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -1224,11 +1224,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
     <LinearLayout
@@ -1237,7 +1237,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/black"
+        android:background="@color/white"
         android:visibility="gone">
 
         <EditText
@@ -1246,10 +1246,10 @@
             android:layout_height="wrap_content"
             android:hint="Masukkan sudut"
             android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="#888888"
             android:textSize="24sp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="12dp"
             android:layout_marginBottom="16dp" />
 
@@ -1257,14 +1257,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dari Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerFromAngle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
@@ -1272,14 +1272,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ke Unit:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp"/>
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerToAngle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:padding="8dp"
             android:layout_marginBottom="24dp"/>
 
@@ -1299,11 +1299,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hasil: -"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="32sp"
             android:gravity="center"
             android:padding="16dp"
-            android:background="@drawable/rounded_dark_gray_bg"/>
+            android:background="@drawable/rounded_light_gray_bg"/>
     </LinearLayout>
 
 </LinearLayout>
