@@ -27,23 +27,63 @@
         android:textSize="20dp"
         android:textColor="#FB0000"
         android:textStyle="bold"/>
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_move_activity"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
         android:text="@string/move_activity"
+        android:layout_marginBottom="16dp"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_move_converter"
         style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
         android:text="Pindah Konverter"
+        android:layout_marginBottom="16dp"
         tools:ignore="MissingConstraints"
         />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_move_activity_data"
+        style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Pindah Dengan Data" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_dial_number"
+        style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Nomor Telepon" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_maps"
+        style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Alamat" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_data_received"
+        />
+</LinearLayout>
+
 
 </LinearLayout>

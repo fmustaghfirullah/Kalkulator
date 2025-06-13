@@ -27,6 +27,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnRadDeg: MaterialButton
     private lateinit var btnBack: ImageButton
 
+    // Nama mahasiswa
+    private lateinit var namaMahasiswa: String
+    private var umur: Int = 22
+
     // State kalkulator
     private var currentInput = ""
     private var isResultShown = false
@@ -43,6 +47,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        //Data Kiriman
+//
+//        namaMahasiswa = "Faisal Mustaghfirullah"
+//        umur = 22
+//
+//        intent.putExtra(MenuActivity.EXTRA_NAME, namaMahasiswa)
+//        intent.putExtra(MenuActivity.EXTRA_AGE, umur)
+//        startActivity(intent)
 
         // Inisialisasi UI komponen
         tvDisplay = findViewById(R.id.tvDisplay)

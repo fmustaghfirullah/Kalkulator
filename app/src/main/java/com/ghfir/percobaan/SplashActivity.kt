@@ -13,30 +13,34 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        val videoView: VideoView = findViewById(R.id.video_view)
-        val videoPath = Uri.parse("android.resource://" + packageName + "/" + R.raw.faisal_splash)
+        val pemutarVideo: VideoView = findViewById(R.id.video_view)
+        val sumberVideo = Uri.parse("android.resource://" + packageName + "/" + R.raw.faisal_splash)
 
-        videoView.setVideoURI(videoPath)
+        pemutarVideo.setVideoURI(sumberVideo)
 
-        videoView.setOnCompletionListener(object : MediaPlayer.OnCompletionListener {
+        pemutarVideo.setOnCompletionListener(object : MediaPlayer.OnCompletionListener {
             override fun onCompletion(mp: MediaPlayer?) {
-                val intent = Intent(this@SplashActivity, MenuActivity::class.java)
-                startActivity(intent)
+                val mauPindah = Intent(this@SplashActivity, MenuActivity::class.java)
+                mauPindah.putExtra(MenuActivity.KEY_NAMA_MHS, "Faisal Mustaghfirullah")
+                mauPindah.putExtra(MenuActivity.KEY_UMUR_MHS, 22)
+                startActivity(mauPindah)
                 finish()
             }
         })
 
-        videoView.setOnPreparedListener(object : MediaPlayer.OnPreparedListener {
+        pemutarVideo.setOnPreparedListener(object : MediaPlayer.OnPreparedListener {
             override fun onPrepared(mp: MediaPlayer?) {
                 mp?.isLooping = false
-                videoView.start()
+                pemutarVideo.start()
             }
         })
 
-        videoView.setOnErrorListener(object : MediaPlayer.OnErrorListener {
+        pemutarVideo.setOnErrorListener(object : MediaPlayer.OnErrorListener {
             override fun onError(mp: MediaPlayer?, what: Int, extra: Int): Boolean {
-                val intent = Intent(this@SplashActivity, MenuActivity::class.java)
-                startActivity(intent)
+                val mauPindahCepat = Intent(this@SplashActivity, MenuActivity::class.java)
+                mauPindahCepat.putExtra(MenuActivity.KEY_NAMA_MHS, "Faisal Mustaghfirullah")
+                mauPindahCepat.putExtra(MenuActivity.KEY_UMUR_MHS, 22533568)
+                startActivity(mauPindahCepat)
                 finish()
                 return true
             }
