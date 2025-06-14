@@ -12,4 +12,4 @@
     android:singleLine="true"
     android:ellipsize="marquee"
     android:textStyle="bold"
-    android:background="@android:color/holo_blue_light" />
+    android:background="@color/pink" />
