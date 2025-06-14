@@ -1,5 +1,8 @@
 package com.ghfir.percobaan;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
     Button tombolPindah;
     Button tombolKonverter;
-    Button tombolData;
+    Button tombolData; // Ini masih dikomentari di kode asli Anda
     Button tombolKirimChatWA;
     Button tombolPeta;
     public static final String KEY_NAMA_MHS = "nama_mahasiswa";
@@ -30,8 +33,9 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         tombolKonverter = findViewById(R.id.btn_move_converter);
         tombolKonverter.setOnClickListener(this);
 
-        tombolData = findViewById(R.id.btn_move_activity_data);
-        tombolData.setOnClickListener(this);
+        // tombolData masih dikomentari, saya biarkan seperti itu.
+        // tombolData = findViewById(R.id.btn_move_activity_data);
+        // tombolData.setOnClickListener(this);
 
         tombolKirimChatWA = findViewById(R.id.btn_dial_number);
         tombolKirimChatWA.setOnClickListener(this);
@@ -44,8 +48,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         String namaMahasiswaDiterima = getIntent().getStringExtra(KEY_NAMA_MHS);
         int usiaMahasiswaDiterima = getIntent().getIntExtra(KEY_UMUR_MHS, 0);
 
-        String teksUntukTampilan = "Info Mahasiswa: " + namaMahasiswaDiterima + ",\nNIMnya: " + usiaMahasiswaDiterima;
-        infoTampilan.setText(teksUntukTampilan);
+        final String teksUntukTampilan = "Info Mahasiswa: " + namaMahasiswaDiterima + ",\nNIMnya: " + usiaMahasiswaDiterima;
+
+        // Panggil metode untuk efek mengetik
+        typeWrite(infoTampilan, teksUntukTampilan, 100); // 100ms per karakter
     }
 
     @Override
@@ -57,11 +63,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         } else if (idTombol == R.id.btn_move_converter) {
             Intent mauKeKonverter = new Intent(MenuActivity.this, ConverterActivity.class);
             startActivity(mauKeKonverter);
-        } else if (idTombol == R.id.btn_move_activity_data) {
-            Intent niatBawaData = new Intent(MenuActivity.this, MoveWithDataActivity.class);
-            niatBawaData.putExtra(KEY_NAMA_MHS, "Faisal Mustaghfirullah");
-            niatBawaData.putExtra(KEY_UMUR_MHS, 22533568);
-            startActivity(niatBawaData);
+            // Kode di bawah ini masih dikomentari di kode asli Anda, saya biarkan seperti itu.
+            // } else if (idTombol == R.id.btn_move_activity_data) {
+            // Intent niatBawaData = new Intent(MenuActivity.this, MoveWithDataActivity.class);
+            // niatBawaData.putExtra(KEY_NAMA_MHS, "Faisal Mustaghfirullah");
+            // niatBawaData.putExtra(KEY_UMUR_MHS, 22533568);
+            // startActivity(niatBawaData);
         } else if (idTombol == R.id.btn_dial_number) {
             String nomorWA = "6289523558412";
             String isiPesan = "Halo Faisal!💋💋💋";
@@ -77,6 +84,35 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             Intent bukaPeta = new Intent(Intent.ACTION_VIEW, Uri.parse("https://maps.app.goo.gl/QQsQAGUZ1m6m3xQy7"));
             startActivity(bukaPeta);
         }
+    }
+
+    /**
+     * Metode utilitas untuk menambahkan efek mengetik pada TextView.
+     * @param textView TextView yang akan menampilkan efek mengetik.
+     * @param text String yang akan diketik.
+     * @param intervalMs Jeda waktu antar karakter dalam milidetik.
+     */
+    private void typeWrite(final TextView textView, final String text, long intervalMs) {
+        textView.setText(""); // Bersihkan teks sebelumnya
+
+        ValueAnimator animator = ValueAnimator.ofInt(0, text.length());
+        animator.setDuration(text.length() * intervalMs);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int currentLength = (int) animation.getAnimatedValue();
+                textView.setText(text.substring(0, currentLength));
+            }
+        });
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                // Opsional: Lakukan sesuatu setelah animasi selesai
+                // Log.d("TypewriterEffect", "Efek mengetik selesai!");
+            }
+        });
+        animator.start();
     }
 
     @Override

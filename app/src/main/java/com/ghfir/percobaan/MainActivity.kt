@@ -84,8 +84,10 @@ class MainActivity : AppCompatActivity() {
 
         // Listener untuk tombol kembali ke menu utama
         btnBack.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java) // Ganti MenuActivity dengan Activity menu Anda
-            startActivity(intent)
+            val mauPindah = Intent(this@MainActivity, MenuActivity::class.java)
+            mauPindah.putExtra(MenuActivity.KEY_NAMA_MHS, "Faisal Mustaghfirullah")
+            mauPindah.putExtra(MenuActivity.KEY_UMUR_MHS, 22533568)
+            startActivity(mauPindah)
             finish()
         }
 

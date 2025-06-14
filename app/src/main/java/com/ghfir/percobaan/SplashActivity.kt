@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
             override fun onCompletion(mp: MediaPlayer?) {
                 val mauPindah = Intent(this@SplashActivity, MenuActivity::class.java)
                 mauPindah.putExtra(MenuActivity.KEY_NAMA_MHS, "Faisal Mustaghfirullah")
-                mauPindah.putExtra(MenuActivity.KEY_UMUR_MHS, 22)
+                mauPindah.putExtra(MenuActivity.KEY_UMUR_MHS, 22533568)
                 startActivity(mauPindah)
                 finish()
             }
